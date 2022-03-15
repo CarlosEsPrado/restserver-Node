@@ -2,7 +2,7 @@ const { response, request } = require("express");
 const { Categorie } = require("../models");
 
 const categoriesGet = async (req = request, res = response) => {
-    const { limite = 5, desde = 0, id = '' } = req.query;
+    const { limite = 5, desde = 0 } = req.query;
     const query = { state: true };
 
     const [total, categories] = await Promise.all([
