@@ -37,10 +37,20 @@ const productExistsById = async (id) => {
     }
 }
 
+// * Validar coleccines permitidas
+const permittedCollections = (collection = '', collections = []) => {
+    const includ = collections.includes(collection);
+    if (!includ) {
+        throw new Error(`La colección ${collection} no conincide con ${collections}`);
+    }
+    return true;
+}
+
 module.exports = {
     isValidRole,
     emailExists,
     userExistsById,
     categorieExistsByid,
-    productExistsById
+    productExistsById,
+    permittedCollections
 }
